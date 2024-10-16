@@ -4,42 +4,44 @@
     ViewData["Title"] = "Edit To-Do";
 }
 
-<h2>Edit To-Do</h2>
+<h2 class="text-3xl font-bold mb-5">Edit To-Do</h2>
 
 <!-- Display validation summary -->
-<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div asp-validation-summary="ModelOnly" class="text-red-600 mb-4"></div>
 
 <!-- Edit Form -->
-<form asp-action="Edit" method="post">
-    <div class="form-group">
-        <label asp-for="Title" class="control-label"></label>
-        <input asp-for="Title" class="form-control" />
-        <span asp-validation-for="Title" class="text-danger"></span>
+<form asp-action="Edit" method="post" class="bg-white shadow-md rounded-lg p-6">
+    <div class="mb-4">
+        <label asp-for="Title" class="block text-gray-700 font-semibold mb-1"></label>
+        <input asp-for="Title" class="border border-gray-300 rounded-lg w-full p-2 focus:outline-none focus:ring focus:ring-blue-500" />
+        <span asp-validation-for="Title" class="text-red-600"></span>
     </div>
 
-    <div class="form-group">
-        <label asp-for="Description" class="control-label"></label>
-        <input asp-for="Description" class="form-control" />
-        <span asp-validation-for="Description" class="text-danger"></span>
+    <div class="mb-4">
+        <label asp-for="Description" class="block text-gray-700 font-semibold mb-1"></label>
+        <input asp-for="Description" class="border border-gray-300 rounded-lg w-full p-2 focus:outline-none focus:ring focus:ring-blue-500" />
+        <span asp-validation-for="Description" class="text-red-600"></span>
     </div>
 
-    <div class="form-group">
-        <label asp-for="DueDate" class="control-label"></label>
-        <input asp-for="DueDate" class="form-control" type="datetime-local" />
-        <span asp-validation-for="DueDate" class="text-danger"></span>
+    <div class="mb-4">
+        <label asp-for="DueDate" class="block text-gray-700 font-semibold mb-1"></label>
+        <input asp-for="DueDate" class="border border-gray-300 rounded-lg w-full p-2 focus:outline-none focus:ring focus:ring-blue-500" type="datetime-local" />
+        <span asp-validation-for="DueDate" class="text-red-600"></span>
     </div>
 
-    <div class="form-group">
-        <label asp-for="IsCompleted" class="control-label"></label>
-        <input asp-for="IsCompleted" class="form-check-input" type="checkbox" />
-        <span asp-validation-for="IsCompleted" class="text-danger"></span>
+    <div class="mb-4">
+        <label asp-for="IsCompleted" class="inline-flex items-center">
+            <input asp-for="IsCompleted" class="form-check-input mr-2" type="checkbox" />
+            <span class="text-gray-700">Is Completed</span>
+        </label>
+        <span asp-validation-for="IsCompleted" class="text-red-600"></span>
     </div>
 
     <input type="hidden" asp-for="Id" />
 
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Save Changes</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    <div class="flex items-center justify-between">
+        <button type="submit" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition">Save Changes</button>
+        <a asp-action="Index" class="bg-gray-300 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-400 transition">Cancel</a>
     </div>
 </form>
 
