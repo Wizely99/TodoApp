@@ -1,0 +1,24 @@
+@model TodoApp.Models.Todo
+
+@{
+    ViewData["Title"] = "Todo Details";
+}
+<h1>Todo Details</h1>
+
+
+@if (Model != null)
+{
+    <div>
+        <h2>@Model.Title</h2>
+        <p><strong>Description:</strong> @Model.Description</p>
+        <p><strong>Created At:</strong> @Model.DueDate.ToString("g")</p>
+        <p><strong>Due Date:</strong> @Model.DueDate.ToString("g")</p>
+        <p><strong>Status:</strong> @(Model.IsCompleted ? "Completed" : "Not Completed")</p>
+        
+        <a asp-controller="Todo" asp-action="Index">Back to List</a>
+    </div>
+}
+else
+{
+    <p>No todo details available.</p>
+}
